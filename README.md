@@ -70,9 +70,8 @@ A **secure, role-based online bidding platform** that enables principals to crea
 - Axios for API calls  
 
 **Deployment:**
-- Backend: Render / Railway / Heroku  
-- Frontend: Vercel / Netlify  
-
+- Backend: Vercel
+- Frontend: Vercel
 ---
 
 ## Backend Setup
@@ -81,4 +80,32 @@ A **secure, role-based online bidding platform** that enables principals to crea
    ```bash
    git clone <repo-url>
    cd backend
+   npm install
 
+   npm run dev
+    
+2. Dotenv of Backend:
+   ```bash
+   PORT=4000
+   DB_URL="DB URL"
+
+   JWT_SECRET="Secret Key"
+   PRINCIPAL_SECRET_KEY="Principal secret key"
+
+   SENDGRID_API_KEY="Get key from SendGrid website after registration"
+   SENDGRID_SENDER="Verified email from SendGrid"
+
+   CLIENT_URLS=http://localhost:5173
+
+## Frontend Setup
+
+1. Clone the repository:  
+   ```bash
+   cd frontend
+   npm install
+
+   npm run dev
+
+2. Dotenv of Frontend:
+   ```bash
+   VITE_API_URL="http://localhost:4000/api"
