@@ -111,5 +111,24 @@ A **secure, role-based online bidding platform** that enables principals to crea
    VITE_API_URL="http://localhost:4000/api"
 
 
+## API Endpoints
+**Auth Routes**
+- POST /api/auth/register – Register a new user
+- POST /api/auth/login – Login user and get JWT
+
+**Stall Routes**
+- GET /api/stalls – Get all stalls
+- GET /api/stalls/:id – Get stall by ID
+- POST /api/stalls – Create stall (Principal only)
+- PUT /api/stalls/:id – Update stall (Principal only)
+- DELETE /api/stalls/:id – Delete stall (Principal only)
+- PATCH /api/stalls/:id/sold – Mark stall as sold (Principal only)
+
+**Bid Routes**
+- POST /api/bids – Place a bid (Student only)
+- GET /api/bids/stall/:stallId – Get all bids for a stall
+- GET /api/bids/user – Get all bids placed by logged-in student
+
 ## Contributing
 Contributions, issues, and feature requests are welcome! 
+
