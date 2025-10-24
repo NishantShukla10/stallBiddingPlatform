@@ -109,8 +109,8 @@ export default function StallDetails() {
                 <p className="text-blue-100 mt-2">{stall.description || "No description available"}</p>
               </div>
               <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${stall.isSold
-                  ? 'bg-red-500 bg-opacity-20 text-white'
-                  : 'bg-green-500 bg-opacity-20 text-white'
+                ? 'bg-red-500 bg-opacity-20 text-white'
+                : 'bg-green-500 bg-opacity-20 text-white'
                 }`}>
                 {stall.isSold ? (
                   <>
@@ -153,32 +153,42 @@ export default function StallDetails() {
           </div>
 
           {/* Bid Placement Section */}
-          {!stall.isSold && role === "student" && (
-            <div className="p-6 border-t border-gray-200 bg-blue-50">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Place Your Bid</h3>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span className="text-gray-500 font-semibold">₹</span>
+          {!stall.isSold && (
+            <>
+              {role === "student" ? (
+                <div className="p-6 border-t border-gray-200 bg-blue-50">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Place Your Bid</h3>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex-1 relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span className="text-gray-500 font-semibold">₹</span>
+                      </div>
+                      <input
+                        type="number"
+                        value={bidAmount}
+                        onChange={(e) => setBidAmount(e.target.value)}
+                        placeholder="Enter your bid amount"
+                        className="w-full pl-8 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors outline-none"
+                      />
+                    </div>
+                    <button
+                      onClick={placeBid}
+                      disabled={isSubmitting}
+                      className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? "Placing..." : "Place Bid"}
+                    </button>
                   </div>
-                  <input
-                    type="number"
-                    value={bidAmount}
-                    onChange={(e) => setBidAmount(e.target.value)}
-                    placeholder="Enter your bid amount"
-                    className="w-full pl-8 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors outline-none"
-                  />
                 </div>
-                <button
-                  onClick={placeBid}
-                  disabled={isSubmitting}
-                  className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Placing..." : "Place Bid"}
-                </button>
-              </div>
-            </div>
+              ) : (
+                <div className="p-6 border-t border-gray-200 bg-yellow-50 text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Login Required</h3>
+                  <p className="text-gray-700">Please log in as a student to place a bid.</p>
+                </div>
+              )}
+            </>
           )}
+
 
           {/* Bids History Section */}
           <div className="p-6">
@@ -199,8 +209,8 @@ export default function StallDetails() {
                   <div
                     key={b._id}
                     className={`flex items-center justify-between p-4 rounded-lg border transition-all ${index === 0
-                        ? 'bg-green-50 border-green-200 shadow-md'
-                        : 'bg-white border-gray-200 hover:shadow-md'
+                      ? 'bg-green-50 border-green-200 shadow-md'
+                      : 'bg-white border-gray-200 hover:shadow-md'
                       }`}
                   >
                     <div className="flex items-center gap-3">
