@@ -11,7 +11,7 @@
 
 ## Live URL
 
-- [LIVE URL](https://stallbiddingplatform-qyx1.onrender.com){:target="_blank"}
+- [Live URL](https://stallbiddingplatform-qyx1.onrender.com)
 
 ---
 
@@ -81,3 +81,4 @@ A **secure, role-based online bidding platform** that enables principals to crea
    ```bash
    git clone <repo-url>
    cd backend
+
