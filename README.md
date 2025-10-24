@@ -109,3 +109,7 @@ A **secure, role-based online bidding platform** that enables principals to crea
 2. Dotenv of Frontend:
    ```bash
    VITE_API_URL="http://localhost:4000/api"
+
+
+## Contributing
+Contributions, issues, and feature requests are welcome! 
